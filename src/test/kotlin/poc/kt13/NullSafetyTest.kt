@@ -1,13 +1,14 @@
 package poc.kt13
 
 import kotlin.test.Test
+import kotlin.test.assertFailsWith
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 
 class NullSafetyTest {
 
     @Test
-    fun notNull() {
+    fun notNullable() {
         var notNull = "this can not be null"
         assertNotNull(notNull)
     }
@@ -25,7 +26,7 @@ class NullSafetyTest {
     }
 
     @Test
-    fun nullableTest() {
+    fun nullableWhenSetNullableVarToOther() {
         var otherNullable: String? = null
         val der = otherNullable
         assertNull(der)
@@ -62,4 +63,40 @@ class NullSafetyTest {
             assertNull(otherNullable)
         }
     }
+
+    @Test
+    fun whenThrowKotlinNullPointerException() {
+        var value : String? = null;
+        assertFailsWith<KotlinNullPointerException> {
+            value!!
+        }
+    }
+
+    @Test
+    fun subStringWhenUseNonNullAssertedShouldThrowKotlinNullPointerException() {
+        var value : String? = null;
+        assertFailsWith<KotlinNullPointerException> {
+            value!!.substring(0)
+        }
+    }
+
+    @Test
+    fun subStringWhenUseSaferShouldNotThrowKotlinNullPointerException() {
+        var value : String? = null;
+        assertNull(value?.substring(0))
+    }
+
+    @Test
+    fun subStringWhenUseNullCheck() {
+        var value : String? = null
+        if(value != null) {
+            assertNotNull(value.substring(0))
+        } else {
+            assertNull(value?.substring(0))
+            assertFailsWith<KotlinNullPointerException> {
+                value!!.substring(0)
+            }
+        }
+    }
+
 }
