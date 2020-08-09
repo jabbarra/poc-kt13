@@ -1,19 +1,12 @@
 package poc.kt13
 
-class ClassPayer(val name: String, val age: Int, val paymentTerms: Array<PaymentTerm>? = null) {
+class ClassPayer(val name: String, val age: Int, val paymentTerms: Array<EnumPaymentTerm>? = null) {
+    val isAdult: Boolean
+        get() = age > 18
 
-    enum class PaymentTerm {
-        TC,
-        TD
-    }
+    private fun showCardName() = "$name is $age has $paymentTerms"
 
-    private fun showCardName(): String {
-        return "$name is $age has $paymentTerms"
-    }
-
-    private fun showCardName(aka: String): String {
-        return "$aka is $age"
-    }
+    private fun showCardName(aka: String) =  "$aka is $age"
 
     fun showCardName(aka: String, risk: Int): String {
         return if (risk < 1) showCardName() else showCardName(aka)

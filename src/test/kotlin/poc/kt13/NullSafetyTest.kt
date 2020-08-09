@@ -8,6 +8,12 @@ import kotlin.test.assertNull
 class NullSafetyTest {
 
     @Test
+    fun nullableWhenSetNull() {
+        val valueNull = null
+        assertNull(valueNull)
+    }
+
+    @Test
     fun notNullable() {
         var notNull = "this can not be null"
         assertNotNull(notNull)
