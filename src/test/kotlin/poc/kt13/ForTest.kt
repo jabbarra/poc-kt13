@@ -40,4 +40,12 @@ class ForTest {
             print(index)
         }
     }
+
+    @Test
+    fun forWhenUseIndexAndValue() {
+        val list =  listOf("omar", "barra")
+        for ((index, value) in list.withIndex()){
+            println("$value - $index")
+        }
+    }
 }
