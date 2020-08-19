@@ -43,6 +43,6 @@ class MapTest {
     fun mapOfShouldBeInMutable() {
         val map = mapOf("omar" to 3, "barra" to 2)
         assertEquals(3, map["omar"])
-        assertEquals(4, map["barra"])
+        assertEquals(2, map["barra"])
     }
 }

@@ -39,7 +39,7 @@ class NullSafetyTest {
     }
 
     @Test
-    fun nullableTestxx() {
+    fun nullableWhenUseSafeCall() {
         var otherNullable: String? = null
         var der = otherNullable?.length
 

@@ -35,7 +35,7 @@ class ListTest {
     fun arrayListGetWhenDoNotUseOperatorOverloading() {
         val list = arrayListOf("omar")
         list.add("barra")
-        assertEquals("barra", list.get(2))
+        assertEquals("barra", list.get(1))
     }
 
     @Test
