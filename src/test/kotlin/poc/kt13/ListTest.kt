@@ -7,24 +7,7 @@ import kotlin.test.assertNotNull
 class ListTest {
 
     @Test
-    fun arrayListOf() {
-        val list = arrayListOf("omar")
-        list.add("barra")
-
-        assertEquals(2, list.size)
-        assertEquals("omar", list[0])
-        assertEquals("barra", list[1])
-
-        list[0] = "alberto"
-        assertEquals("alberto", list[0])
-
-
-        list.removeAt(0)
-        assertEquals("barra", list[0])
-    }
-
-    @Test
-    fun listOfForEach() {
+    fun `listOf forEach`() {
         val list = listOf("omar", "barra")
         list.forEach{
             assertNotNull(it)
@@ -32,14 +15,7 @@ class ListTest {
     }
 
     @Test
-    fun arrayListGetWhenDoNotUseOperatorOverloading() {
-        val list = arrayListOf("omar")
-        list.add("barra")
-        assertEquals("barra", list.get(1))
-    }
-
-    @Test
-    fun listOfShouldBeInMutable() {
+    fun `listOf should be in mutable`() {
         val list = listOf("omar", 4)
         assertEquals("omar", list[0])
         assertEquals(4, list[1])
