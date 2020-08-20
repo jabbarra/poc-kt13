@@ -6,6 +6,9 @@ import kotlin.test.assertFailsWith
 
 class HighOrderFunctionTest {
 
+    /**
+     * Inline avoids Lambdas map to anonymous classes, so the objects will not create each call
+     */
     @Test
     fun inlineFunction() {
         val numbers = listOf(1, 2, 3, 5, 0)
@@ -14,6 +17,9 @@ class HighOrderFunctionTest {
         assertEquals(3, result)
     }
 
+    /**
+     * Inline avoids Lambdas map to anonymous classes, so the objects will not create each call
+     */
     @Test
     fun inlineFunctionShouldBeThrowException() {
         val numbers = listOf(1, 2, 5, 0)
