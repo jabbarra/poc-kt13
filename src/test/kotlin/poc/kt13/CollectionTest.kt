@@ -2,6 +2,8 @@ package poc.kt13
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class CollectionTest {
 
@@ -38,6 +40,22 @@ class CollectionTest {
         assertEquals(listOf(4, 5, 6), rest)
     }
 
+    @Test
+    fun `predicates `() {
+        val lowerThanThree = { x: Int -> x < 3 }
+        val numbers = listOf(1, 2, 4, 5, 6)
+        var result = numbers.any(lowerThanThree)
+        assertTrue(result)
+
+        result = numbers.all(lowerThanThree)
+        assertFalse(result)
+
+        val count  = numbers.count(lowerThanThree)
+        assertEquals(2, count)
+
+        val theFirstMatch  = numbers.find(lowerThanThree)
+        assertEquals(1, theFirstMatch)
+    }
 
     @Test
     fun `map simple use`() {
@@ -56,5 +74,23 @@ class CollectionTest {
      //   assertEquals(listOf(2, 4), result)
     }
 
+
+    @Test
+    fun `flatMap simple use`() {
+      //  val list = listOf("12", "67").flatMap((x) -> x.to )
+       // assertEquals(listOf('1', '2', '6', '7'), list)
+    }
+
+    @Test
+    fun `map and filter uske`() {
+        val payers = listOf(
+                ClassPayer("omar", 10, arrayOf(EnumPaymentTerm.TC, EnumPaymentTerm.TD)),
+                ClassPayer("barra", 20, arrayOf(EnumPaymentTerm.TC, EnumPaymentTerm.TD)))
+
+
+        //  val result = payers.find { it -> it.age > 10 }.ma
+
+        //   assertEquals(listOf(2, 4), result)
+    }
 
 }
